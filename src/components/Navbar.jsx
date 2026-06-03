@@ -83,7 +83,7 @@ const Navbar = () => {
 
             {/* Sign In */}
             <Link
-              href="/login"
+              href="/signin"
               className="px-2 text-sm font-medium text-violet-400 transition hover:text-violet-300"
             >
               Sign In
@@ -91,7 +91,7 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <Link
-              href="/register"
+              href="/signup"
               className="ml-4 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:scale-105"
             >
               Get Started
