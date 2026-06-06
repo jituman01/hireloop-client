@@ -6,6 +6,7 @@ import {
     Magnifier,
     Star,
 } from "@gravity-ui/icons";
+
 export default function StatsSection() {
     const stats = [
         {
