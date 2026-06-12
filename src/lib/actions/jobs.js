@@ -1,10 +1,12 @@
 'use server'
 
-import { serverMutation } from "../core/server";
+import { serverFetch, serverMutation } from "../core/server";
 
 export const createJob = async (newJobData) => {
     return serverMutation('/api/jobs', newJobData);
 }
+
+
 
 // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 // export const createJob = async (newJobData) => {
