@@ -110,7 +110,7 @@ export default function CompanyProfile({recruiter, recruiterCompany}) {
   };
 
   // SCREEN CASE 1: No Registered Profile Instance Found
-  if (!company && !isEditing) {
+  if (!company?._id && !isEditing) {
     return (
       <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center p-12 border border-zinc-900 rounded-2xl bg-black min-h-[400px]">
         <div className="p-4 bg-gray-900 rounded-full text-sky-400 mb-4">
