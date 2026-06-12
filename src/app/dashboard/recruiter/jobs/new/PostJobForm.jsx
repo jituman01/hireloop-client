@@ -21,13 +21,13 @@ import { redirect } from "next/navigation";
 
 export default function PostJobForm({company}) {
     // Mock configuration for recruiter's authenticated state
-    console.log('postjobform received company prop:',company);
+    // console.log('postjobform received company prop:',company);
     
-    const [mockCompany] = useState({
-        name: "Acme Corp (Auto-filled)",
-        id: "company_123",
-        isApproved: true,
-    });
+    // const [company] = useState({
+    //     name: "Acme Corp (Auto-filled)",
+    //     id: "company_123",
+    //     isApproved: true,
+    // });
 
     const [isRemote, setIsRemote] = useState(false);
     const [errors, setErrors] = useState({});
@@ -35,10 +35,10 @@ export default function PostJobForm({company}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!mockCompany.isApproved) {
-            alert("Your company profile must be approved before you can post jobs.");
-            return;
-        }
+        // if (!company.isApproved) {
+        //     alert("Your company profile must be approved before you can post jobs.");
+        //     return;
+        // }
 
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
@@ -64,7 +64,9 @@ export default function PostJobForm({company}) {
         const payload = {
             ...data,
             isRemote,
-            companyId: mockCompany.id,
+            companyId: company._id,
+            companyName: company.name,
+            companyLogo: company.logo,
             status: "active",
             isPubliclyVisible: true,
         };
@@ -101,7 +103,7 @@ export default function PostJobForm({company}) {
                     {/* Company verification status panel */}
                     <div className="mt-4 inline-flex items-center gap-2 bg-zinc-900/50 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-zinc-400">
                         <Briefcase size={14} className="text-zinc-500" />
-                        Posting as: <span className="font-semibold text-zinc-300">{mockCompany.name}</span>
+                        Posting as: <span className="font-semibold text-zinc-300">{company.name}</span>
                         <span className="text-emerald-500 font-medium bg-emerald-950/30 px-1.5 py-0.5 rounded border border-emerald-900/50">Approved</span>
                     </div>
                 </div>
